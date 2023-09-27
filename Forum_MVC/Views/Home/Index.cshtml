@@ -1,0 +1,134 @@
+﻿@using Forum_MVC.Data.Entities;
+@model MyViewModel;
+@using Microsoft.AspNetCore.Mvc.Rendering;
+@using System.Linq;
+<style>
+    .btn-outline-pink {
+        color: #4B4B75;
+        background-color: transparent;
+        border-color: #4B4B75;
+        width: 100%;
+        text-align: left;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin-bottom: 10px;
+    }
+
+        .btn-outline-pink:hover {
+            color: #FFFFFF;
+            background-color: #4B4B75;
+            border-color: #4B4B75;
+        }
+
+    .page-link {
+        color: #4B4B75;
+        background-color: transparent;
+        border-color: #4B4B75;
+    }
+
+        .page-link:hover {
+            color: #FFFFFF;
+            background-color: #4B4B75;
+            border-color: #4B4B75;
+        }
+
+    .page-item.active .page-link {
+        color: #FFFFFF;
+        background-color: #4B4B75;
+        border-color: #4B4B75;
+    }
+
+    body {
+        background-color: #F0F0F0;
+        font-family: Montserrat;
+    }
+
+    .pink-card {
+        background-color: rgba(27, 27, 69, 0.6);
+        color: white;
+        border-color: #4B4B75;
+        margin-bottom: 20px;
+        max-width: 100%;
+    }
+
+        .pink-card:hover {
+            background-color: #4B4B75;
+        }
+
+    .d-flex-container {
+        display: flex;
+    }
+
+    .col-md-3 {
+        flex: 0 0 200px;
+        margin-right: 20px;
+    }
+
+    .text-center {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .dropdown-item:hover {
+        color: #4B4B75;
+        /*background-color: #FF1493;*/
+        border-color: #4B4B75;
+    }
+</style>
+
+
+<body>
+    <div class="d-flex-container">
+        <div class="col-md-3">
+            @if (Model != null)
+            {
+                <div class="dropdown">
+                    @if (Model.SelectedCategoryId == 0)
+                    {
+                        @foreach (var category in Model.Categories)
+                        {
+                            <a class="btn btn-outline-pink" href="@Url.Action("Index", new { selectedCategoryId = category.Id, topicId = Model.SelectedTopicId })">@category.Name</a>
+                        }
+                    }
+                    else
+                    {
+                        @*@Model.Categories.FirstOrDefault(c => c.Id == Model.SelectedCategoryId)?.Name*@
+                        @foreach (var category in Model.Categories)
+                        {
+                            <a class="btn btn-outline-pink" href="@Url.Action("Index", new { selectedCategoryId = category.Id, topicId = Model.SelectedTopicId })">@category.Name</a>
+                        }
+                    }
+                </div>
+            }
+        </div>
+
+        <div class="text-center">
+            @if (Model != null && Model.Posts.Any())
+            {
+                foreach (var i in Model.Posts)
+                {
+                    <div class="card pink-card text-white mb-3">
+                        <div class="card-header">@i.Title</div>
+                        <div class="card-body">
+                            <p class="card-text">@i.Text</p>
+                        </div>
+                    </div>
+                }
+            }
+
+            <nav>
+                <ul class="pagination">
+                    @for (var i = 1; i <= Math.Ceiling((double)Model.TotalPosts / Model.PageSize); i++)
+                    {
+                        <li class="page-item @(i == Model.PageNumber ? "active" : "")">
+                            <a class="page-link" href="/Home/Index?pageNumber=@i&pageSize=@Model.PageSize">@i</a>
+                        </li>
+                    }
+                </ul>
+            </nav>
+        </div>
+    </div>
+</body>
