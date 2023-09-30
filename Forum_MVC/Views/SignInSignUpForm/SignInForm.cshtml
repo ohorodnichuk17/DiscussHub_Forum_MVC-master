@@ -1,0 +1,61 @@
+﻿<link rel="stylesheet" href="~/css/signForm.css" />
+
+<body>
+    <div class="sign-container">
+        <div class="sign-up-container">
+            <form class="forma">
+                <h1>Create Account</h1>
+                <div class="social-links">
+                    <div>
+                        <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                    </div>
+                    <div>
+                        <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                    </div>
+                    <div>
+                        <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+                <span>or use your email for registration</span>
+                <input class="in" type="text" placeholder="Name">
+                <input class="in" type="email" placeholder="Email">
+                <input class="in" type="password" placeholder="Password">
+                <button class="form_btn buton">Sign Up</button>
+            </form>
+        </div>
+        <div class="sign-in-container">
+            <form class="forma" method="post" action="~/SignInSignUpForm/SignInForm">
+                <h1>Sign In</h1>
+                <div class="social-links">
+                    <div>
+                        <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                    </div>
+                    <div>
+                        <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                    </div>
+                    <div>
+                        <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+                <input class="in" type="email" placeholder="Email" name="email" required>
+                <input class="in" type="password" placeholder="Password" name="password" required>
+                <button class="form_btn buton">Sign In</button>
+            </form>
+            
+
+        </div>
+        <div class="overlay-container">
+            <div class="overlay-left">
+                <h1>Welcome Back</h1>
+                <p>To keep connected with us please login with your personal info</p>
+                <button id="signIn" class="overlay_btn buton">Sign In</button>
+            </div>
+            <div class="overlay-right">
+                <h1>Hello, Friend</h1>
+                <p>Enter your personal details and start journey with us</p>
+            </div>
+        </div>
+    </div>
+</body>
+    
+<script src="~/js/signIn.js"></script>

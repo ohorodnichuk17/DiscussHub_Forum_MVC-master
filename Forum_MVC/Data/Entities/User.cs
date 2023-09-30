@@ -1,10 +1,11 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Identity;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Forum_MVC.Data.Entities
 {
-    public class User
+    public class User /*: IdentityUser*/
     {
         [Key]
         public int Id { get; set; }

@@ -1,3 +1,7 @@
+using Forum_MVC.Data;
+using Forum_MVC.Data.Entities;
+using Microsoft.AspNetCore.Identity;
+
 namespace Forum_MVC
 {
     public class Program
@@ -8,6 +12,13 @@ namespace Forum_MVC
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+            builder.Services.AddAuthentication("MyCookieAuthenticationScheme")
+            .AddCookie("MyCookieAuthenticationScheme", options =>
+            {
+                options.LoginPath = "/SignInSignUpForm/SignInForm";
+                options.AccessDeniedPath = "/Home/AccessDenied";
+            });
 
             var app = builder.Build();
 
@@ -24,11 +35,21 @@ namespace Forum_MVC
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
+            //app.MapControllerRoute(
+            //    name: "default",
+            //    pattern: "{controller=Home}/{action=Index}/{id?}");
+
             app.MapControllerRoute(
-                name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}");
+            name: "default",
+            pattern: "{controller=SignInSignUpForm}/{action=SignInForm}/{id?}");
+
+            app.MapControllerRoute(
+                name: "home",
+                pattern: "Home/{action=Index}/{id?}",
+                defaults: new { controller = "Home", action = "Index" });
 
             app.Run();
         }
