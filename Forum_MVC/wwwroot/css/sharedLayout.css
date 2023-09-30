@@ -4,8 +4,23 @@
     border-color: #4B4B75;
 }
 
-    .btn-search:hover {
-        color: #FFFFFF;
-        background-color: #4B4B75;
-        border-color: #4B4B75;
-    }
+.btn-search:hover {
+    color: #FFFFFF;
+    background-color: #4B4B75;
+    border-color: #4B4B75;
+}
+
+.btn-login {
+    color: #4B4B75;
+    background-color: transparent;
+    border-color: #4B4B75;
+    width: 100px; 
+    margin-right: 20px;
+    font-weight: bold;
+}
+
+.btn-login:hover {
+    color: #FFFFFF;
+    background-color: #4B4B75;
+    border-color: #4B4B75;
+}
