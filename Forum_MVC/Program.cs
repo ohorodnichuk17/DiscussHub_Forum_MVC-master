@@ -38,18 +38,18 @@ namespace Forum_MVC
             app.UseAuthentication();
             app.UseAuthorization();
 
+            app.MapControllerRoute(
+                name: "default",
+                pattern: "{controller=Home}/{action=Index}/{id?}");
+
             //app.MapControllerRoute(
-            //    name: "default",
-            //    pattern: "{controller=Home}/{action=Index}/{id?}");
+            //name: "default",
+            //pattern: "{controller=SignInSignUpForm}/{action=SignInForm}/{id?}");
 
-            app.MapControllerRoute(
-            name: "default",
-            pattern: "{controller=SignInSignUpForm}/{action=SignInForm}/{id?}");
-
-            app.MapControllerRoute(
-                name: "home",
-                pattern: "Home/{action=Index}/{id?}",
-                defaults: new { controller = "Home", action = "Index" });
+            //app.MapControllerRoute(
+            //    name: "home",
+            //    pattern: "{controller=SignInSignUpForm}/{action=SignInForm}/{id?}",
+            //    defaults: new { controller = "Home", action = "Index" });
 
             app.Run();
         }
