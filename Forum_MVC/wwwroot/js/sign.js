@@ -1,6 +1,6 @@
 ﻿const signUpBtn = document.getElementById("signUp");
 const signInBtn = document.getElementById("signIn");
-const container = document.querySelector(".container");
+const container = document.querySelector(".containerr");
 
 signUpBtn.addEventListener("click", () => {
     container.classList.add("right-panel-active");
@@ -8,3 +8,8 @@ signUpBtn.addEventListener("click", () => {
 signInBtn.addEventListener("click", () => {
     container.classList.remove("right-panel-active");
 });
+
+
+//function redirectToSignUpFormPage() {
+//    window.location.href = '/SignInSignUpForm/SignUpForm';
+//}

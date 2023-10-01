@@ -6,21 +6,34 @@ namespace DataAccess.Data
 {
     public class ForumDbContext : DbContext
     {
+        public ForumDbContext() { }
+        //public ForumDbContext(DbContextOptions options) : base(options) { }
+        public ForumDbContext(DbContextOptions<ForumDbContext> options) : base(options) { }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
 
-            optionsBuilder.UseSqlServer(@"Data Source=JULIAOHORODNICH\SQLEXPRESS;
-                                        Initial Catalog=ForumMVCDbB;
-                                        Integrated Security=True;
-                                        Connect Timeout=2;
-                                        Encrypt=False;
-                                        TrustServerCertificate=False;
-                                        ApplicationIntent=ReadWrite;
-                                        MultiSubnetFailover=False");
+            //optionsBuilder.UseSqlServer(@"Data Source=JULIAOHORODNICH\SQLEXPRESS;
+            //                            Initial Catalog=ForumMVCDbB;
+            //                            Integrated Security=True;
+            //                            Connect Timeout=2;
+            //                            Encrypt=False;
+            //                            TrustServerCertificate=False;
+            //                            ApplicationIntent=ReadWrite;
+            //                            MultiSubnetFailover=False");
 
             //optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB; Initial Catalog = ForumDb; Initial Catalog=master;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
         }
+
+        //public Shop111DbContext() { }
+        //public Shop111DbContext(DbContextOptions options) : base(options) { }
+
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    base.OnConfiguring(optionsBuilder);
+
+        //    //optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=ShopVPDDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False");
+        //}
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

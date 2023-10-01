@@ -9,16 +9,14 @@ namespace DataAccess.Data.Entities
         [Key]
         public int Id { get; set; }
 
-        [Required]
-        [StringLength(100, MinimumLength = 3)]
+        //[Required]
+        //[StringLength(100, MinimumLength = 3)]
         public string Name { get; set; }
 
         public int AmountOfTopics { get; set; }
 
-        //public int TopicOfPostId { get; set; }
-        //[ForeignKey("TopicOfPostId")]
         public ICollection<TopicOfPost>? Topics { get; set; }
-        [Required]
+        //[Required]
         public string VisibilityStatus { get; set; }
         public ICollection<Post> Posts { get; set; }
     }

@@ -14,6 +14,13 @@ public class SignInSignUpFormController : Controller
         return View();
     }
 
+    private readonly ForumDbContext context;
+
+    public SignInSignUpFormController(ForumDbContext context)
+    {
+        this.context = context;
+    }
+
     [HttpPost]
     [ValidateAntiForgeryToken]
     public ActionResult SignInForm(Login model)
@@ -21,11 +28,8 @@ public class SignInSignUpFormController : Controller
         if (ModelState.IsValid)
         {
             User user = null;
-            using (ForumDbContext db = new ForumDbContext())
-            {
-                user = db.Users.FirstOrDefault(u => u.Email == model.Email && u.Password == model.Password);
+                user = context.Users.FirstOrDefault(u => u.Email == model.Email && u.Password == model.Password);
 
-            }
             if (user != null)
             {
                 return RedirectToAction("Index", "Home");
@@ -39,5 +43,10 @@ public class SignInSignUpFormController : Controller
         return View(model);
     }
 
-   
+    public IActionResult SignUpForm()
+    {
+        return View();
+    }
+
+
 }

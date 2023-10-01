@@ -1,6 +1,7 @@
 using DataAccess.Data;
-using DataAccess.Data.Entities;
-using Microsoft.AspNetCore.Identity;
+using FluentValidation;
+using FluentValidation.AspNetCore;
+using Microsoft.EntityFrameworkCore;
 
 namespace Forum_MVC
 {
@@ -9,6 +10,12 @@ namespace Forum_MVC
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+
+            string connStr = builder.Configuration.GetConnectionString("LocalDb");
+            builder.Services.AddDbContext<ForumDbContext>(opts => opts.UseSqlServer(connStr));
+
+            builder.Services.AddFluentValidationAutoValidation();
+            builder.Services.AddValidatorsFromAssemblies(AppDomain.CurrentDomain.GetAssemblies());
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
@@ -41,6 +48,10 @@ namespace Forum_MVC
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
+
+            app.MapControllerRoute(
+                name: "signUpFormRoute",
+                pattern: "{controller=SignInSignUpForm}/{action=SignUpForm}/{id?}");
 
             //app.MapControllerRoute(
             //name: "default",

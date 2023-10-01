@@ -8,10 +8,15 @@ namespace Forum_MVC.Controllers
 {
     public class HomeController : Controller
     {
-        ForumDbContext context = new ForumDbContext();
+        private readonly ForumDbContext context;
 
-        public HomeController()
+        //public HomeController()
+        //{
+        //}
+
+        public HomeController(ForumDbContext context)
         {
+            this.context = context;
         }
 
         public IActionResult Index(int pageNumber = 1, int pageSize = 3, int selectedCategoryId = 0, int selectedTopicId = 0)

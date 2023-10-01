@@ -9,17 +9,17 @@ namespace DataAccess.Data.Entities
         [Key]
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "The 'Text' field is required.")]
+        //[Required(ErrorMessage = "The 'Text' field is required.")]
         public string Text { get; set; }
-        [MaxLength(255, ErrorMessage = "Image URL cannot exceed 255 characters.")]
+        //[MaxLength(255, ErrorMessage = "Image URL cannot exceed 255 characters.")]
         public string? ImageUrl { get; set; }
-        [Range(0, int.MaxValue, ErrorMessage = "LikeCount must be a non-negative number.")]
+        //[Range(0, int.MaxValue, ErrorMessage = "LikeCount must be a non-negative number.")]
         public int LikeCount { get; set; }
-        [Range(0, int.MaxValue, ErrorMessage = "DislikeCount must be a non-negative number.")]
+        //[Range(0, int.MaxValue, ErrorMessage = "DislikeCount must be a non-negative number.")]
         public int DislikeCount { get; set; }
 
 
-        [Required(ErrorMessage = "The 'UserId' field is required.")]
+        //[Required(ErrorMessage = "The 'UserId' field is required.")]
         public int UserId { get; set; }
         [ForeignKey("UserId")]
         public User User { get; set; }
