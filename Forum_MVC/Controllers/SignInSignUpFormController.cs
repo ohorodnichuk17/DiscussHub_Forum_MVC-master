@@ -3,9 +3,9 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
-using Forum_MVC.Data.Entities;
+using DataAccess.Data.Entities;
 using Forum_MVC.Models;
-using Forum_MVC.Data;
+using DataAccess.Data;
 
 public class SignInSignUpFormController : Controller
 {

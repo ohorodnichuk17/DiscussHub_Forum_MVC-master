@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Forum_MVC.Data.Entities
+namespace DataAccess.Data.Entities
 {
     public class CommonFields
     {

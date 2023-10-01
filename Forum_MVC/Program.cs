@@ -1,5 +1,5 @@
-using Forum_MVC.Data;
-using Forum_MVC.Data.Entities;
+using DataAccess.Data;
+using DataAccess.Data.Entities;
 using Microsoft.AspNetCore.Identity;
 
 namespace Forum_MVC

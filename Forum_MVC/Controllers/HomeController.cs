@@ -1,8 +1,8 @@
 ﻿using Forum_MVC.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
-using Forum_MVC.Data;
-using Forum_MVC.Data.Entities;
+using DataAccess.Data;
+using DataAccess.Data.Entities;
 
 namespace Forum_MVC.Controllers
 {

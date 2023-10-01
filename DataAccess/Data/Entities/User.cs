@@ -3,7 +3,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Forum_MVC.Data.Entities
+namespace DataAccess.Data.Entities
 {
     public class User /*: IdentityUser*/
     {

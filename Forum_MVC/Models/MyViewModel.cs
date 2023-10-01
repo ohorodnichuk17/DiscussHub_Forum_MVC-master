@@ -1,4 +1,4 @@
-﻿using Forum_MVC.Data.Entities;
+﻿using DataAccess.Data.Entities;
 
 namespace Forum_MVC.Models
 {

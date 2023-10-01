@@ -1,8 +1,8 @@
-﻿using Forum_MVC.Data.Entities;
+﻿using DataAccess.Data.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Forum_MVC.Data
+namespace DataAccess.Data
 {
     public class ForumDbContext : DbContext
     {

@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace Forum_MVC.Migrations
+namespace DataAccess.Migrations
 {
     public partial class Initial : Migration
     {

@@ -1,8 +1,8 @@
-﻿//using Forum_MVC.Data.Entities;
+﻿//using DataAccess.Data.Entities;
 //using System.ComponentModel.DataAnnotations.Schema;
 //using System.ComponentModel.DataAnnotations;
 
-//namespace Forum_MVC.Data.Entities
+//namespace DataAccess.Data.Entities
 //{
 //    public class Post
 //    {
@@ -43,7 +43,7 @@
 //    }
 //}
 
-using Forum_MVC.Data.Entities;
+using DataAccess.Data.Entities;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 
