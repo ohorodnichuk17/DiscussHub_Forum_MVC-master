@@ -49,9 +49,9 @@ namespace Forum_MVC
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
 
-            app.MapControllerRoute(
-                name: "signUpFormRoute",
-                pattern: "{controller=SignInSignUpForm}/{action=SignUpForm}/{id?}");
+            //app.MapControllerRoute(
+            //    name: "signUpFormRoute",
+            //    pattern: "{controller=SignInSignUpForm}/{action=SignUpForm}/{id?}");
 
             //app.MapControllerRoute(
             //name: "default",
