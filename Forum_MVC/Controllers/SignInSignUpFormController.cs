@@ -48,5 +48,35 @@ public class SignInSignUpFormController : Controller
         return View();
     }
 
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public ActionResult SignUpForm(Register model)
+    {
+        if (ModelState.IsValid)
+        {
+            var existingUser = context.Users.FirstOrDefault(u => u.Email == model.Email);
+            if (existingUser != null)
+            {
+                ModelState.AddModelError("Email", "User with this email exists");
+                return View(model);
+            }
+
+            var newUser = new User
+            {
+                Email = model.Email,
+                Password = model.Password,
+                Username = model.Username,
+            };
+
+            context.Users.Add(newUser);
+            context.SaveChanges();
+
+            // Встановлення аутентифікаційного кукі та перенаправлення на головну сторінку
+            //FormsAuthentication.SetAuthCookie(model.Email, true);
+            return RedirectToAction("Index", "Home");
+        }
+
+        return View(model);
+    }
 
 }
