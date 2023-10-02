@@ -1,18 +1,7 @@
-﻿<link rel="stylesheet" href="~/css/signForm.css" />
+﻿<link rel="stylesheet" href="~/css/signInForm.css" />
 <body>
-<div class="wrapperr">
-    <div class="containerr">
-        <div class="sign-up-container">
-            <form class="forma">
-                <h1>Create Account</h1>
-                <span>or use your email for registration</span>
-                <input class="in" type="text" placeholder="Name">
-                <input class="in" type="email" placeholder="Email">
-                <input class="in" type="password" placeholder="Password">
-                <input class="in" type="password" placeholder="Confirm password">
-                <button class="buton form_btn">Sign Up</button>
-            </form>
-        </div>
+    <div class="wrapperr">
+        <div class="containerr">
             <div class="sign-in-container">
                 <form class="forma" method="post" action="~/SignInSignUpForm/SignInForm">
                     <h1 class="signH1">Sign In</h1>
@@ -21,20 +10,19 @@
                     <button class="form_btn buton">Sign In</button>
                 </form>
             </div>
-
-        <div class="overlay-container">
-            <div class="overlay-left">
-                <h1>Welcome Back</h1>
-                <p>To keep connected with us please login with your personal info</p>
-                <button id="signIn" class="buton overlay_btn">Sign In</button>
-            </div>
-            <div class="overlay-right">
-                <h1>Hello, Friend</h1>
-                <p>Enter your personal details and start journey with us</p>
-                <button id="signUp" class="buton overlay_btn">Sign Up</button>
+            <div class="overlay-container">
+                <div class="overlay-right">
+                    <h1>Hello, Friend</h1>
+                    <p>Enter your personal details and start journey with us</p>
+                    <button id="signUp" class="buton overlay_btn" onclick="redirectToSignUpFormPage()">Sign Up</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<script src="~/js/sign.js"></script>*
+    @*<script src="~/js/signIn.js"></script>*@
+    <script>
+        function redirectToSignUpFormPage() {
+            window.location.href = '/SignInSignUpForm/SignUpForm';
+        }
+    </script>
 </body>
