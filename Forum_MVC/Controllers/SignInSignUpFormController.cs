@@ -9,10 +9,21 @@ using DataAccess.Data;
 
 public class SignInSignUpFormController : Controller
 {
+    //public IActionResult SignInForm()
+    //{
+    //    return View();
+    //}
+
     public IActionResult SignInForm()
     {
+        if (User.Identity.IsAuthenticated)
+        {
+            return RedirectToAction("Index", "Home");
+        }
+
         return View();
     }
+
 
     private readonly ForumDbContext context;
 
@@ -21,22 +32,54 @@ public class SignInSignUpFormController : Controller
         this.context = context;
     }
 
+    //[HttpPost]
+    //[ValidateAntiForgeryToken]
+    //public ActionResult SignInForm(Login model)
+    //{
+    //    if (ModelState.IsValid)
+    //    {
+    //        User user = null;
+    //            user = context.Users.FirstOrDefault(u => u.Email == model.Email && u.Password == model.Password);
+
+    //        if (user != null)
+    //        {
+    //            return RedirectToAction("Index", "Home");
+    //        }
+    //        else
+    //        {
+    //            ModelState.AddModelError("", "User with this login and password doesn`t exist");
+    //        }
+    //    }
+
+    //    return View(model);
+    //}
+
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public ActionResult SignInForm(Login model)
+    public async Task<ActionResult> SignInForm(Login model)
     {
         if (ModelState.IsValid)
         {
-            User user = null;
-                user = context.Users.FirstOrDefault(u => u.Email == model.Email && u.Password == model.Password);
+            User user = context.Users.FirstOrDefault(u => u.Email == model.Email && u.Password == model.Password);
 
             if (user != null)
             {
+                var claims = new List<Claim>
+            {
+                new Claim(ClaimTypes.Name, user.Username),  // Ім'я користувача
+                new Claim("Status", "Online")  // Статус (ви можете змінити це значення залежно від вашої логіки)
+            };
+
+                var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+
+                var principal = new ClaimsPrincipal(identity);
+                await HttpContext.SignInAsync("MyCookieAuthenticationScheme", principal);
+
                 return RedirectToAction("Index", "Home");
             }
             else
             {
-                ModelState.AddModelError("", "User with this login and password doesn`t exist");
+                ModelState.AddModelError("", "User with this login and password doesn't exist");
             }
         }
 
@@ -71,12 +114,18 @@ public class SignInSignUpFormController : Controller
             context.Users.Add(newUser);
             context.SaveChanges();
 
-            // Встановлення аутентифікаційного кукі та перенаправлення на головну сторінку
-            //FormsAuthentication.SetAuthCookie(model.Email, true);
             return RedirectToAction("Index", "Home");
         }
 
         return View(model);
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Index()
+    {
+        await HttpContext.SignOutAsync("MyCookieAuthenticationScheme");
+        return RedirectToAction("Index", "Home");
     }
 
 }

@@ -38,8 +38,23 @@
                         </div>
                     </div>
                 </div>
-                    <div class="row justify-content-end">
-                    <button type="button" class="btn btn-login btn-outline-primary" onclick="redirectToLoginPage()">Log In</button>
+                <div class="row justify-content-end">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="userDropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                @User.Identity.Name
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="userDropdownMenuButton">
+                                <li><a class="dropdown-item" href="#">Settings</a></li>
+                                <li><a class="dropdown-item" href="/Home/Index">Logout</a></li>
+                            </ul>
+                        </div>
+                    }
+                    else
+                    {
+                        <button type="button" class="btn btn-login btn-outline-primary" onclick="redirectToLoginPage()">Log In</button>
+                    }
                 </div>
             </div>
         </nav>
