@@ -49,7 +49,9 @@
                                     @Html.ActionLink("Hello, " + User.Identity.Name + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage", @class = "white-text" })
                                 </button>
                                 <ul class="dropdown-menu" aria-labelledby="userDropdownMenuButton">
-                                    <li><a class="dropdown-item" href="#">Settings</a></li>
+                                    <li>
+                                        <button type="button" class="nav-link btn btn-link text-dark" onclick="redirectToProfileSettings()">Settings</button>
+                                    </li>
                                     <li>
                                         <button type="submit" class="nav-link btn btn-link text-dark">Logout</button>
                                     </li>
