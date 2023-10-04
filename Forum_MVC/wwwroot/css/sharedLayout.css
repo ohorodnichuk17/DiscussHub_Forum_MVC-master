@@ -24,3 +24,28 @@
     background-color: #4B4B75;
     border-color: #4B4B75;
 }
+
+.btn-name {
+    color: #4B4B75;
+    background-color: transparent;
+    border-color: #4B4B75;
+    width: 100px;
+    margin-right: 20px;
+    font-weight: bold;
+}
+
+.btn-name {
+    color: #FFFFFF;
+    background-color: #4B4B75;
+    border-color: #4B4B75;
+    width: 100%;
+}
+.white-text {
+    color: white;
+    text-decoration: none;
+}
+
+.white-text:hover {
+    color: white;
+    text-decoration: none;
+}

@@ -120,11 +120,17 @@ public class SignInSignUpFormController : Controller
         return View(model);
     }
 
-    [HttpPost]
-    [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Index()
+    //[HttpPost]
+    //[ValidateAntiForgeryToken]
+    //public async Task<IActionResult> Index()
+    //{
+    //    await HttpContext.SignOutAsync("MyCookieAuthenticationScheme");
+    //    return RedirectToAction("Index", "Home");
+    //}
+
+    public async Task<IActionResult> Logout()
     {
-        await HttpContext.SignOutAsync("MyCookieAuthenticationScheme");
+        await HttpContext.SignOutAsync();
         return RedirectToAction("Index", "Home");
     }
 
