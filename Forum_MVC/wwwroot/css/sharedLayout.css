@@ -1,4 +1,8 @@
-﻿.btn-search {
+﻿body {
+    font-family: Montserrat;
+}
+
+.btn-search {
     color: #4B4B75;
     background-color: transparent;
     border-color: #4B4B75;
@@ -26,20 +30,20 @@
 }
 
 .btn-name {
-    color: #4B4B75;
-    background-color: transparent;
+    color: white;
+    background-color: #4B4B75;
     border-color: #4B4B75;
-    width: 100px;
-    margin-right: 20px;
+    width: 100%;
     font-weight: bold;
 }
 
-.btn-name {
+/*.btn-name:hover {
     color: #FFFFFF;
     background-color: #4B4B75;
     border-color: #4B4B75;
     width: 100%;
-}
+}*/
+
 .white-text {
     color: white;
     text-decoration: none;
