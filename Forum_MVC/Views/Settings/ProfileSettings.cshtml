@@ -1,1 +1,145 @@
-﻿
+﻿@*@model MyViewModel;
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profile Settings</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #4B4B75;
+            color: white;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>User settings</h1>
+        <div class="row">
+            <div class="col-md-6">
+                @if (User.Identity.IsAuthenticated)
+                {
+                    var username = User.Identity.Name;
+                    var currentUser = Model.Users.FirstOrDefault(u => u.Username == username);
+
+                    <h2>@currentUser.Username</h2>
+                    <p>Email: @currentUser.Email</p>
+                    <img src="@Url.Content(currentUser.ImageUrl)" alt="User Image" class="img-fluid" style="max-width: 300px;" />
+                }
+
+  
+
+            </div>
+        </div>
+        <hr />
+        <h2>Posts</h2>
+        @foreach (var post in Model.Posts)
+        {
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">@post.Title</h5>
+                    <p class="card-text">@post.Text</p>
+                    @if (!string.IsNullOrEmpty(post.ImageUrl))
+                    {
+                        <img src="@post.ImageUrl" alt="Post Image" class="img-fluid" style="max-width: 300px;" />
+                    }
+                    <p>Likes: @post.PostStatistics.LikeCount</p>
+                    <p>Dislikes: @post.PostStatistics.DislikeCount</p>
+                </div>
+            </div>
+        }
+    </div>
+</body>
+</html>
+*@
+
+
+
+<link rel="stylesheet" href="~/css/profileSettings.css" />
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-lg-4 pb-5">
+                <div class="author-card pb-3">
+                    <div class="author-card-details">
+                        <h5 class="author-card-name text-lg">Username</h5>
+                    </div>
+                    <div class="author-card-avatar">
+                        <img id="avatar-preview" src="" alt="">
+                        <!--https://bootdey.com/img/Content/avatar/avatar1.png-->
+                    </div>
+                    <div class="author-card-profile">
+                        <div class="col-12 column">
+                            <div class="form-group">
+                                <input type="file" class="form-control-file" id="avatar" accept="image/*">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-8 pb-5">
+                <form class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="account-fn">Username</label>
+                            <input class="form-control" type="text" id="account-fn" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="account-email">Email</label>
+                            <input class="form-control" type="email" id="account-email" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="account-pass">New Password</label>
+                            <input class="form-control" type="password" id="account-pass">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="account-confirm-pass">Confirm Password</label>
+                            <input class="form-control" type="password" id="account-confirm-pass">
+                        </div>
+                    </div>
+                    <div class="container">
+                        <hr class="mt-2 mb-3">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <h1>Your post statistics</h1>
+ @*                               <p>Likes: <span id="like-count">@Model.PostStatistics.LikeCount</span></p>
+                                <p>Dislikes: <span id="dislike-count">@Model.PostStatistics.DislikeCount</span></p>*@
+                                <!-- Використовувати картинки для лайків та дизлайків, замість слів -->
+                                <img src="path_to_like_image.png" alt="Like" />
+                                <img src="path_to_dislike_image.png" alt="Dislike" />
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-12">
+                        <hr class="mt-2 mb-3">
+                        <div class="d-flex flex-wrap justify-content-between align-items-center">
+                            <div class="custom-control custom-checkbox d-block">
+                                <input class="custom-control-input" type="checkbox" id="subscribe_me" checked>
+                                <label class="custom-control-label" for="subscribe_me">Subscribe me to Newsletter</label>
+                            </div>
+                            <button class="btn btn-style-1 btn-primary" type="button" data-toast data-toast-position="topRight"
+                                    data-toast-type="success" data-toast-icon="fe-icon-check-circle" data-toast-title="Success!"
+                                    data-toast-message="Your profile updated successfuly.">
+                                Update Profile
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="~/js/profileSettings.js"></script>
+</body>

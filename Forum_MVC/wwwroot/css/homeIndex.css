@@ -10,11 +10,11 @@
     margin-bottom: 10px;
 }
 
-    .btn-outline-pink:hover {
-        color: #FFFFFF;
-        background-color: #4B4B75;
-        border-color: #4B4B75;
-    }
+.btn-outline-pink:hover {
+    color: #FFFFFF;
+    background-color: #4B4B75;
+    border-color: #4B4B75;
+}
 
 .page-link {
     color: #4B4B75;
@@ -22,11 +22,11 @@
     border-color: #4B4B75;
 }
 
-    .page-link:hover {
-        color: #FFFFFF;
-        background-color: #4B4B75;
-        border-color: #4B4B75;
-    }
+.page-link:hover {
+    color: #FFFFFF;
+    background-color: #4B4B75;
+    border-color: #4B4B75;
+}
 
 .page-item.active .page-link {
     color: #FFFFFF;
@@ -47,9 +47,9 @@ body {
     max-width: 100%;
 }
 
-    .pink-card:hover {
-        background-color: #4B4B75;
-    }
+.pink-card:hover {
+    background-color: #4B4B75;
+}
 
 .d-flex-container {
     display: flex;

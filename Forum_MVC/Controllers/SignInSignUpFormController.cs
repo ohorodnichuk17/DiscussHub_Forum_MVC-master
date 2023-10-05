@@ -32,28 +32,6 @@ public class SignInSignUpFormController : Controller
         this.context = context;
     }
 
-    //[HttpPost]
-    //[ValidateAntiForgeryToken]
-    //public ActionResult SignInForm(Login model)
-    //{
-    //    if (ModelState.IsValid)
-    //    {
-    //        User user = null;
-    //            user = context.Users.FirstOrDefault(u => u.Email == model.Email && u.Password == model.Password);
-
-    //        if (user != null)
-    //        {
-    //            return RedirectToAction("Index", "Home");
-    //        }
-    //        else
-    //        {
-    //            ModelState.AddModelError("", "User with this login and password doesn`t exist");
-    //        }
-    //    }
-
-    //    return View(model);
-    //}
-
     [HttpPost]
     [ValidateAntiForgeryToken]
     public async Task<ActionResult> SignInForm(Login model)
@@ -66,8 +44,8 @@ public class SignInSignUpFormController : Controller
             {
                 var claims = new List<Claim>
             {
-                new Claim(ClaimTypes.Name, user.Username),  // Ім'я користувача
-                new Claim("Status", "Online")  // Статус (ви можете змінити це значення залежно від вашої логіки)
+                new Claim(ClaimTypes.Name, user.Username),  
+                new Claim("Status", "Online")  
             };
 
                 var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
