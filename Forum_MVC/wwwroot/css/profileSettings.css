@@ -3,63 +3,26 @@
     font-family: Arial, sans-serif;
 }
 
-.author-card-details {
-    margin-top: 30px;
+.container1 {
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .author-card-name {
-    font-size: 24px;
+    font-size: 32px;
     font-weight: bold;
     margin-bottom: 20px;
 }
 
-.author-card-profile {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-
-.widget-author {
-    margin-bottom: 58px;
-}
-
-.author-card {
-    position: relative;
-    padding-bottom: 48px;
-    background-color: rgba(27, 27, 69, 0.6);
-    color: white;
-    box-shadow: 0 12px 20px 1px rgba(64, 64, 64, .09);
-    border-radius: 12%;
-    border-color: #4B4B75;
-    margin-bottom: 20px;
-    max-width: 100%;
-    max-height: 70%;
-    text-align: center;
-    padding-top: 30px;
-}
-
-.author-card:hover {
-    background-color: #4B4B75;
-}
-
 .author-card-avatar {
-    width: 185px;
-    height: 185px;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
-    box-shadow: 0 8px 20px 0 rgba(0, 0, 0, .15);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     margin: 0 auto;
-}
-
-.author-card-avatar > img {
-    display: block;
-    width: 100%;
-}
-
-.form-control {
-    margin-bottom: 15px;
-    border-color: #4B4B75;
 }
 
 .form-group label {
@@ -67,35 +30,35 @@
     font-weight: bold;
 }
 
-.btn-style-1.btn-primary {
+.form-control-file::before {
+    content: 'Upload Avatar';
+    display: inline-block;
     background-color: #4B4B75;
-    border-color: #4B4B75;
+    color: white;
+    border: 1px solid #4B4B75;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: all 0.3s;
 }
 
-.btn-style-1.btn-primary:hover {
+.form-control-file::before:hover {
     background-color: #6A6A8C;
     border-color: #6A6A8C;
 }
 
-.custom-control-input:checked ~ .custom-control-label::before {
-    border-color: #4B4B75;
-    background-color: #4B4B75;
+.btn-style-1 {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
 }
 
-.custom-checkbox .custom-control-label::before {
-    border-color: #4B4B75;
-}
-
-.form-control-file::-webkit-file-upload-button {
-    font-size: 0;
-    padding: 0;
-}
-
-.form-control-file {
-    overflow: hidden;
-    position: relative;
-    color: transparent;
-    margin-top: 20px;
+.btn-style-1:hover {
+    background-color: darkred;
 }
 
 .form-control-file::before {
@@ -120,4 +83,25 @@
 
 .column {
     margin-top: 20px;
+}
+
+.form-control-file {
+    overflow: hidden;
+    position: relative;
+    color: transparent;
+    margin-top: 20px;
+}
+
+.custom-control-input:checked ~ .custom-control-label::before {
+    border-color: #4B4B75;
+    background-color: #4B4B75;
+}
+
+.custom-checkbox .custom-control-label::before {
+    border-color: #4B4B75;
+}
+
+.form-control-file::-webkit-file-upload-button {
+    font-size: 0;
+    padding: 0;
 }
