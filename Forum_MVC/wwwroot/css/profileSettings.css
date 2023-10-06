@@ -39,9 +39,9 @@
     padding-top: 30px;
 }
 
-    .author-card:hover {
-        background-color: #4B4B75;
-    }
+.author-card:hover {
+    background-color: #4B4B75;
+}
 
 .author-card-avatar {
     width: 185px;
@@ -52,10 +52,10 @@
     margin: 0 auto;
 }
 
-    .author-card-avatar > img {
-        display: block;
-        width: 100%;
-    }
+.author-card-avatar > img {
+    display: block;
+    width: 100%;
+}
 
 .form-control {
     margin-bottom: 15px;
@@ -72,10 +72,10 @@
     border-color: #4B4B75;
 }
 
-    .btn-style-1.btn-primary:hover {
-        background-color: #6A6A8C;
-        border-color: #6A6A8C;
-    }
+.btn-style-1.btn-primary:hover {
+    background-color: #6A6A8C;
+    border-color: #6A6A8C;
+}
 
 .custom-control-input:checked ~ .custom-control-label::before {
     border-color: #4B4B75;
@@ -98,25 +98,25 @@
     margin-top: 20px;
 }
 
-    .form-control-file::before {
-        content: 'Upload avatar';
-        display: flex;
-        justify-content: center;
-        margin-top: 20px;
-        background: #007bff;
-        color: #fff;
-        border: 1px solid #007bff;
-        border-radius: 4px;
-        padding: 8px 20px;
-        outline: none;
-        white-space: nowrap;
-        cursor: pointer;
-        text-align: center;
-    }
+.form-control-file::before {
+    content: 'Upload avatar';
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    background: #4B4B75;
+    color: #fff;
+    border: 1px solid #4B4B75;
+    border-radius: 4px;
+    padding: 8px 20px;
+    outline: none;
+    white-space: nowrap;
+    cursor: pointer;
+    text-align: center;
+}
 
-    .form-control-file:focus::before {
-        border-color: #0056b3;
-    }
+.form-control-file:focus::before {
+    border-color: #0056b3;
+}
 
 .column {
     margin-top: 20px;
