@@ -81,9 +81,11 @@
                     </div>
                     <div class="author-card-profile">
                         <div class="col-12 column">
+                            <form class="row" enctype="multipart/form-data">
                             <div class="form-group">
                                 <input type="file" class="form-control-file" id="avatar" name="avatar" accept="image/*">
                             </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -160,7 +162,7 @@
                                 <input class="custom-control-input" type="checkbox" id="subscribe_me" checked>
                                 <label class="custom-control-label" for="subscribe_me">Subscribe me to Newsletter</label>
                             </div>
-                            <button class="btn btn-style-1 btn-primary" type="button" data-toast data-toast-position="topRight"
+                            <button class="btn btn-style-1 btn-primary" type="button" id="updateProfileButton" data-toast data-toast-position="topRight"
                                     data-toast-type="success" data-toast-icon="fe-icon-check-circle" data-toast-title="Success!"
                                     data-toast-message="Your profile updated successfuly.">
                                 Update Profile

@@ -1,6 +1,8 @@
 ﻿$(document).ready(function () {
-    $('#avatar').on('change', function (e) {
-        var file = e.target.files[0];
+    var avatarInput = document.getElementById('avatar');
+
+    function showAvatarPreview() {
+        var file = avatarInput.files[0];
         var reader = new FileReader();
 
         reader.onloadend = function () {
@@ -10,13 +12,36 @@
         if (file) {
             reader.readAsDataURL(file);
         }
-    });
-
-    $('#update-avatar-btn').click(function () {
-        showToast('Success!', 'Avatar updated successfully.', 'success');
-    });
-
-    function showToast(title, message, type) {
-        //Має бути відображення спливаючого повідомлення 
     }
+
+    avatarInput.addEventListener('change', showAvatarPreview);
+
+    $('#updateProfileButton').click(function () {
+        var formData = new FormData();
+        var avatarFile = avatarInput.files[0];
+        formData.append('avatar', avatarFile);
+
+        $.ajax({
+            url: '/Settings/ProfileSettings',
+            type: 'POST',
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function (data) {
+                console.log('Аватар оновлено успішно.');
+                showToast('success', 'Success!', 'Your profile updated successfully.');
+                location.reload(); 
+            },
+            error: function (error) {
+                console.error('Помилка при оновленні аватарки:', error);
+                showToast('error', 'Error!', 'Failed to update your profile.');
+            }
+        });
+    });
+
+    function showToast(type, title, message) {
+       
+    }
+
+    showAvatarPreview();
 });
