@@ -1,5 +1,7 @@
 # ForumMVC
 
+Use MSSQL, Entity framework, Asp.net Core MVC, HTML, CSS, JS, Bootstrap
+
 ![1](https://github.com/ohorodnichuk17/DiscussHub_Forum_MVC-master/assets/101930820/20a47404-82a3-43c9-9d77-e2096b6753b3)
 
 ![2](https://github.com/ohorodnichuk17/DiscussHub_Forum_MVC-master/assets/101930820/97d5c83d-b159-4bda-86e6-521596cdcfac)
